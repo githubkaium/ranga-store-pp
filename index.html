@@ -18,9 +18,13 @@
 </head>
 
 <body>
-  <header></header>
+  <header>
+    <h1 class="text-center text-success">PiPiLiCaStore</h1>
+  </header>
   <main class="main">
-    <div class="search-field">
+
+    <!-- Search Area -->
+    <div>
       <div class="search-box">
         <input id="input-field" class="search-field" type="text" />
         <button type="button" class="btn btn-primary search-button" data-toggle="button" aria-pressed="false"
@@ -29,12 +33,15 @@
         </button>
       </div>
     </div>
+
+    <!-- Card Section -->
     <div class="row">
       <div class="col-md-9 col-lg-9 col-sm-7">
         <div id="all-products" class="">
-          <h1></h1>
         </div>
       </div>
+
+      <!-- My Card Calculation -->
       <div class="col-md-3 col-lg-3 col-sm-5 cart-main">
         <div class="cart" id="my-cart">
           <table class="table">
@@ -50,7 +57,7 @@
             <tbody>
               <tr>
                 <th>Total Added-Products:</th>
-                <td>$ <span id="total-Products">0</span></td>
+                <td> <span id="total-Products">0</span></td>
                 <td></td>
                 <td></td>
               </tr>
