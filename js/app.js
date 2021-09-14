@@ -20,13 +20,34 @@ const showProducts = (products) => {
       <p>Category: ${product.category}</p>
       <h2>Price: $ ${product.price}</h2>
       <p>Rating: ${product.rating.rate}</p>
-      <p>Total Count: ${product.rating.count}</p>
+      <p>Rating Views: ${product.rating.count}</p>
       <button onclick="addToCart(${product.id},${product.price})" id="addToCart-btn" class="buy-now btn btn-success">add to cart</button>
-      <button id="details-btn" class="btn btn-danger">Details</button></div>
+      <button onClick="showDetails(${product.id})" id="details-btn" class="btn btn-danger">Details</button></div>
       `;
     document.getElementById("all-products").appendChild(div);
   }
 };
+
+// Fetch data from api
+const showDetails = productId => {
+  const url = `https://fakestoreapi.com/products/${productId}`;
+  fetch(url)
+    .then(res => res.json())
+    .then(data => displayResults(data));
+};
+
+// Shows product details
+const displayResults = product => {
+  document.getElementById("all-details").innerHTML = '';
+  const div = document.createElement("div");
+  div.classList.add("product-details");
+  div.innerHTML = `
+    <h3>${product.title}</h3>
+    <p>Category: ${product.category}</p>
+    <p>${product.description}</p>`;
+  document.getElementById("all-details").appendChild(div);
+};
+
 let count = 0;
 const addToCart = (id, price) => {
   count = count + 1;
